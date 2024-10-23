@@ -95,6 +95,15 @@ export class BeipMUAPI {
   isConnected(): boolean {
     return this.beipMU.connected;
   }
+
+  // Open a webview
+  openWebView(url: string, id?: string, dock?: string, headers?: Record<string, string>): void {
+    const data: any = { url };
+    if (id) data.id = id;
+    if (dock) data.dock = dock;
+    if (headers) data['http-request-headers'] = headers;
+    this.sendGMCP('webview', 'open', data);
+  }
 }
 
 // Export a default instance

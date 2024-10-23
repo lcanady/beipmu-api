@@ -61,4 +61,11 @@ describe('BeipMUAPI', () => {
   test('isConnected returns correct connection status', () => {
     expect(api.isConnected()).toBe(true);
   });
+
+  test('openWebView sends correct GMCP command', () => {
+    api.openWebView('https://example.com', 'webview1', 'right', { Authorization: 'Bearer token' });
+    expect(mockBeipMU.sendCommand).toHaveBeenCalledWith(
+      'gmcp webview open {"url":"https://example.com","id":"webview1","dock":"right","http-request-headers":{"Authorization":"Bearer token"}}'
+    );
+  });
 });

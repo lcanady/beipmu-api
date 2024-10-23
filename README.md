@@ -7,9 +7,15 @@ The BeipMU API Library is a TypeScript library designed to interact with BeipMU,
 - **Command Execution**: Send commands directly to BeipMU.
 - **Event Handling**: Register and unregister event listeners.
 - **GMCP Management**: Send and receive GMCP messages.
-- **Window Management**: Open, close, and customize windows.
+- **Window Management**: Open, close, and customize windows, including setting fonts and colors.
 - **Script Management**: Run and stop scripts.
-- **Plugin System**: Extend the library with custom plugins.
+- **Plugin System**: Extend the library with custom plugins, including registration and unregistration.
+- **WebView Management**: Open web views within the BeipMU client.
+- **Connection and Session Information**: Check connection status and retrieve world and character names.
+
+## WebViews
+
+For detailed information on how to use WebViews with BeipMU, please refer to the [WebViews Documentation](https://github.com/BeipDev/BeipMU/blob/master/Documentation/WebViews.md). This documentation provides comprehensive guidance on integrating and utilizing WebViews within the BeipMU client.
 
 ## Installation
 
@@ -67,10 +73,12 @@ api.startPlugins();
 ### Window Management
 
 ```typescript
-import { openWindow, setWindowTitle } from 'beipmu-api/commands';
+import { openWindow, setWindowTitle, setWindowFont, setWindowColors } from 'beipmu-api/commands';
 
 openWindow(api, 'Chat');
 setWindowTitle(api, 'Chat', 'Chat Window');
+setWindowFont(api, 'Chat', 'Arial', 12);
+setWindowColors(api, 'Chat', '#FFFFFF', '#000000');
 ```
 
 ### GMCP Management
@@ -80,6 +88,29 @@ import { GMCPManager, createGMCPManager } from 'beipmu-api/gmcp';
 
 const gmcpManager = createGMCPManager(api);
 gmcpManager.send('core.hello', 'BeipMU', { version: '1.0' });
+gmcpManager.sendSupports(['comm.channel']);
+```
+
+### WebView Management
+
+```typescript
+api.openWebView('https://example.com', 'exampleView', 'left', { Authorization: 'Bearer token' });
+```
+
+### Connection and Session Information
+
+```typescript
+console.log('Connected:', api.isConnected());
+console.log('World Name:', api.getWorldName());
+console.log('Character Name:', api.getCharacterName());
+```
+
+### Utility Functions
+
+```typescript
+import { colorize } from 'beipmu-api/utils';
+
+console.log(colorize('Hello, World!', 'green'));
 ```
 
 ## Use Cases
