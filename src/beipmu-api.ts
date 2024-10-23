@@ -1,5 +1,4 @@
 // BeipMU API Library
-import { BeipMUEventTypes } from './types';
 
 // Define the BeipMU object interface
 interface BeipMU {
