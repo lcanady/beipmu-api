@@ -1,6 +1,6 @@
 {
   "name": "beipmu-api",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A TypeScript API for BeipMU",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -10,7 +10,8 @@
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "prepublishOnly": "npm run build",
-    "test": "jest"
+    "test": "jest",
+    "pub": "npm version patch --force && npm publish"
   },
   "keywords": [
     "beipmu",
