@@ -1,0 +1,26 @@
+{
+  "name": "beipmu-api",
+  "version": "1.0.0",
+  "description": "A TypeScript API for BeipMU",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "prepublish": "npm run build",
+    "test": "jest"
+  },
+  "keywords": [
+    "beipmu",
+    "api",
+    "mud",
+    "mush"
+  ],
+  "author": "BeipMU",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^29.5.14",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "ts-jest": "^29.2.5",
+    "typescript": "^5.6.3"
+  }
+}
